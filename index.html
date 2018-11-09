@@ -2,12 +2,26 @@
     <head>
         <title>Let's Run</title>
         <link rel='stylesheet' type= 'text/css' href='index.css'>
+        <script type='text/javascript' src='src/brython.js'></script>
     </head>
-    <body>
+    <body onload="brython(1)">
         <h1 class='major'>Helping you find your way</h1>
         <h2>A run recommender</h2>
         <a href = "https://route.dsi.link/">running</a>
         <img src="Screen Shot 2018-11-09 at 11.55.12 AM.png"/>
         <p>Specify your preferences</p>
+            <script type='text/python'>
+                from browser import document, alert
+
+                def echo(ev):
+                    alert(f"You want to run {} miles?".format(document["zone"].value))
+
+                document["test"].bind("click!", echo)
+            </script>
+            <p>
+                Input miles :
+                <input id="zone" autocomplete="off">
+                <button id="test">click!</button>
+            </p>
     </body>
 </html>
